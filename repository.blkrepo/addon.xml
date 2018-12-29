@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.blkrepo" name="[COLOR gold]Black Build Repo[/COLOR]" version="1.0" provider-name="Black">
+	<extension point="xbmc.addon.repository" name="Black Build Repo">
+		<info compressed="false">https://raw.githubusercontent.com/drxrpo/repo/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/drxrpo/repo/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/drxrpo/repo/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Black Add-on Repository</summary>
+		<description>Kodi Repository for Black Build</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
