@@ -178,7 +178,6 @@ def checkSkin():
 	wiz.log("[Build Check] Invalid Skin Check End", xbmc.LOGNOTICE)
 
 wiz.forceUpdate()
-wiz.downloadrepos()
 
 bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
 bg_zip = 'https://raw.githubusercontent.com/drxrpo/bg/master/backgrounds.zip'
