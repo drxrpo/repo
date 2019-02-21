@@ -844,6 +844,7 @@ def forceUpdate2(silent=False):
 	ebi('UpdateAddonRepos()')
 	ebi('UpdateLocalAddons()')
 	if silent == False: LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR %s]Forcing Addon Updates[/COLOR]' % COLOR2)
+	downloadrepos()
 	ebi('ActivateWindow(10040,&quot;addons://outdated/&quot;,return)')
 
 def convertSpecial(url, over=False):
@@ -2625,11 +2626,11 @@ def copytree(src, dst, symlinks=False, ignore=None):
 	if errors:
 		raise Error, errors
 		
-#Black Additions
+#Durex Additions
 
 		
 def DESTROY_PATH(path):
-	#dp.create("Black Wizard","Wiping...",'', 'Please Wait')
+	#dp.create("Durex Wizard","Wiping...",'', 'Please Wait')
 	shutil.rmtree(path, ignore_errors=True)
 
 def OPEN_URL(url):
@@ -2681,11 +2682,11 @@ def searchdialog():
 		return search
 		
 def bg_custom():
-	bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.blackonfluence','backgrounds'))
-	skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.blackonfluence'))
+	bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
+	skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.durexonfluence'))
 	DIALOG.ok(ADDONTITLE, "You will need a zip file uploaded to a file hosting site such as a personal server, dropbox, archive.org., etc.", "Then obtain the [COLOR gold]zip file url (http://***/***.zip)[/COLOR]")
 	DIALOG.ok(ADDONTITLE, "[COLOR red]DO NOT[/COLOR] put images in a folder and zip them. All images must be compressed outside of a folder into a zip.")
-	dialog = xbmcgui.Dialog().yesno('[COLOR gold]Black Wizard[/COLOR]','Are you sure you want to continue installing your custom background .zip?', '[COLOR red]You must have http:// url ending with .zip for next step.[/COLOR]')
+	dialog = xbmcgui.Dialog().yesno('[COLOR gold]Durex Wizard[/COLOR]','Are you sure you want to continue installing your custom background .zip?', '[COLOR red]You must have http:// url ending with .zip for next step.[/COLOR]')
 	if dialog:
 		url = searchdialog()
 		WORKINGURL = workingURL(url)
@@ -2699,9 +2700,9 @@ def bg_custom():
 		return
 		
 def bg_remove():
-	bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.blackonfluence','backgrounds'))
-	skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.blackonfluence'))
-	dialog = xbmcgui.Dialog().yesno('[COLOR gold]Black Wizard[/COLOR]','Are you sure you would like to clear backgrounds folder?')
+	bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
+	skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.durexonfluence'))
+	dialog = xbmcgui.Dialog().yesno('[COLOR gold]Durex Wizard[/COLOR]','Are you sure you would like to clear backgrounds folder?')
 	if dialog:
 		if os.path.exists(bgfolder):	
 			shutil.rmtree(bgfolder)
@@ -2713,9 +2714,9 @@ def bg_remove():
 		return
 
 def bg_default():
-	url = 'https://raw.githubusercontent.com/drxbld/bg/master/default.zip'
-	bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.blackonfluence','backgrounds'))
-	skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.blackonfluence'))
+	url = 'https://raw.githubusercontent.com/drxrpo/bg/master/default.zip'
+	bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
+	skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.durexonfluence'))
 	if os.path.exists(bgfolder):	
 		shutil.rmtree(bgfolder)
 	if not os.path.exists(bgfolder):	
@@ -2728,24 +2729,57 @@ def bg_install(name,url):
 	if not WORKINGURL == True:
 		LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR red]%s url not valid[/COLOR]' % (name))
 	else:		
-		bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.blackonfluence','backgrounds'))
-		skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.blackonfluence'))
+		bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
+		skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.durexonfluence'))
 		if not os.path.exists(bgfolder):	
 			os.makedirs(bgfolder)
 		path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
 		dp = xbmcgui.DialogProgress()
-		dp.create("[COLOR gold]Black Wizard[/COLOR]","Downloading %s..." %(name),'', 'Please Wait')
+		dp.create("[COLOR gold]Durex Wizard[/COLOR]","Downloading %s..." %(name),'', 'Please Wait')
 		lib=os.path.join(path, 'backgrounds.zip')
 		try:
 			os.remove(lib)
 		except:
 			pass
 		downloader.download(url, lib, dp)
-		skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.blackonfluence'))
-		bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.blackonfluence','backgrounds'))
+		skinfolder = xbmc.translatePath(os.path.join('special://home/addons','skin.durexonfluence'))
+		bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
 		time.sleep(3)
 		dp = xbmcgui.DialogProgress()
-		dp.create("[COLOR gold]Black Wizard[/COLOR]","Installing %s..." %(name),'', 'Please Wait')
+		dp.create("[COLOR gold]Durex Wizard[/COLOR]","Installing %s..." %(name),'', 'Please Wait')
 		unzip(lib,bgfolder,dp)
 		xbmc.executebuiltin('ReloadSkin()')
 		LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR %s]%s Installed[/COLOR]' % (COLOR2, name))
+
+
+def downloadrepos():
+	GITURLID       = "https://raw.githubusercontent.com/drxrpo/repo/master/"
+	REPOFILE       = "https://raw.githubusercontent.com/drxrpo/tools/master/repos.xml"
+	link           = openURL(REPOFILE)
+	match = re.compile('name="(.+?)"').findall(link)
+	for name in match:
+		REPOFOLDER = xbmc.translatePath(os.path.join(ADDONS, name))
+		if not os.path.exists(REPOFOLDER):
+			installzip = '%s.zip' % (name)
+			DP.create(name,'Downloading New Repos...','', 'Please Wait')
+			if not os.path.exists(PACKAGES): os.makedirs(PACKAGES)
+			lib=os.path.join(PACKAGES, installzip)
+			try: os.remove(lib)
+			except: pass
+			downloader.download(GITURLID+name+'/'+installzip,lib, DP)
+			time.sleep(3)
+			dp = xbmcgui.DialogProgress()
+			dp.create("[COLOR gold]Durex Wizard[/COLOR]","Installing New Repos %s..." %(name),'', 'Please Wait')
+			unzip(lib,ADDONS,dp)
+			try:
+				f = open(os.path.join(ADDONS, name, 'addon.xml'), mode='r'); g = f.read(); f.close()
+				name = parseDOM(g, 'addon', ret='name', attrs = {'id': name})
+				LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, name[0]), "[COLOR %s]Add-on updated[/COLOR]" % COLOR2, icon=os.path.join(ADDONS, REPOID, 'icon.png'))
+			except:
+				pass
+			if KODIV >= 17: addonDatabase(name, 1)
+			DP.close()
+			xbmc.sleep(500)
+			forceUpdate(True)
+			log("[Auto Install Repos] Successfully Installed", xbmc.LOGNOTICE)
+			LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR %s]%s Installed[/COLOR]' % (COLOR2,name))

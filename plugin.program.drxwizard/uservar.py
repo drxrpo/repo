@@ -4,7 +4,7 @@ import os, xbmc, xbmcaddon
 ### User Edit Variables #################################
 #########################################################
 ADDON_ID       = xbmcaddon.Addon().getAddonInfo('id')
-ADDONTITLE     = '[COLOR gold]Black Wizard[/COLOR]'
+ADDONTITLE     = '[COLOR gold]Durex Wizard[/COLOR]'
 EXCLUDES       = [ADDON_ID]
 # Text File with build info in it.
 BUILDFILE      = 'https://raw.githubusercontent.com/drxrpo/tools/master/wizard.xml'
@@ -80,7 +80,7 @@ THEME5         = '[COLOR '+COLOR1+']Current Theme:[/COLOR] [COLOR '+COLOR2+']%s[
 # Enable 'Contact' menu item 'Yes' hide or 'No' dont hide
 HIDECONTACT    = 'No'
 # You can add \n to do line breaks
-CONTACT        = 'http://'
+CONTACT        = 'Thank you for choosing Durex Build.\r\n[B][COLOR gold]Website:[/COLOR][/B] www.drxrpo.com\r\n[COLOR blue][B]Facebook Group:[/COLOR][/B] https://www.facebook.com/groups/drxrpo\r\n[COLOR red][B]For Durex TV 2.0 accounts email:[/COLOR][/B] drx.iptv@gmail.com'
 #Images used for the contact window.  http:// for default icon and fanart
 CONTACTICON    = 'http://'
 CONTACTFANART  = os.path.join(ART, 'ContentPanel.png')
@@ -101,11 +101,11 @@ WIZARDFILE     = 'https://raw.githubusercontent.com/drxrpo/tools/master/wizard.x
 # Enable Auto Install 'Yes' or 'No'
 AUTOINSTALL    = 'Yes'
 # Addon ID for the repository
-REPOID         = 'repository.blkrepo'
+REPOID         = 'repository.drxrepopub'
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
 REPOADDONXML   = 'https://raw.githubusercontent.com/drxrpo/repo/master/addons.xml'
 # Url to folder zip is located in
-REPOZIPURL     = 'https://raw.githubusercontent.com/drxrpo/repo/master/repository.blkrepo/'
+REPOZIPURL     = 'https://raw.githubusercontent.com/drxrpo/repo/master/repository.drxrepopub/'
 #########################################################
 
 #########################################################
@@ -117,7 +117,7 @@ ENABLE         = 'Yes'
 NOTIFICATION   = 'https://raw.githubusercontent.com/drxrpo/tools/master/news.txt'
 # Use either 'Text' or 'Image'
 HEADERTYPE     = 'Text'
-HEADERMESSAGE  = 'Black Wizard'
+HEADERMESSAGE  = 'Durex Wizard'
 # url to image if using Image 424x180
 HEADERIMAGE    = ''
 # Background for Notification Window

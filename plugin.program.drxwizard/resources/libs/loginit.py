@@ -48,30 +48,30 @@ KEEPLOGIN      = wiz.getS('keeplogin')
 LOGINSAVE      = wiz.getS('loginlastsave')
 COLOR1         = uservar.COLOR1
 COLOR2         = uservar.COLOR2
-ORDER          = ['blacktv', 'blacktv2', 'limitless', 'sportsaccess', 'smoothstreams', 'communityportal', 'tvportal', 'flawless', 'sportsmania', 'sportsnationhdtv', 'ultimatemania', 'otttv', 'ivue', 'ontapptv', 'vpnicity', 'overlordtv', 'xtreamcodes', 'gearstv', 'dextertv', 'vader']
+ORDER          = ['durextv', 'durextv2', 'limitless', 'sportsaccess', 'smoothstreams', 'communityportal', 'tvportal', 'flawless', 'sportsmania', 'sportsnationhdtv', 'ultimatemania', 'otttv', 'ivue', 'ontapptv', 'vpnicity', 'overlordtv', 'xtreamcodes', 'gearstv', 'dextertv', 'vader']
 
 LOGINID = {
-	'blacktv' : {
-		'name'     : 'Black TV 1.0',
-		'plugin'   : 'plugin.video.blacktv',
-		'saved'    : 'loginblacktv',
-		'path'     : os.path.join(ADDONS, 'plugin.video.blacktv'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.blacktv', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.blacktv', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'blacktv_login'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.blacktv', 'settings.xml'),
+	'durextv' : {
+		'name'     : 'Durex TV 1.0',
+		'plugin'   : 'plugin.video.durextv',
+		'saved'    : 'logindurextv',
+		'path'     : os.path.join(ADDONS, 'plugin.video.durextv'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.durextv', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.durextv', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'durextv_login'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.durextv', 'settings.xml'),
 		'default'  : 'Username',
 		'data'     : ['Username', 'Password'],
 		'activate' : ''},		
-	'blacktv2' : {
-		'name'     : 'Black TV 2.0',
-		'plugin'   : 'plugin.video.blacktv2',
-		'saved'    : 'loginblacktv2',
-		'path'     : os.path.join(ADDONS, 'plugin.video.blacktv2'),
-		'icon'     : os.path.join(ADDONS, 'plugin.video.blacktv2', 'icon.png'),
-		'fanart'   : os.path.join(ADDONS, 'plugin.video.blacktv2', 'fanart.jpg'),
-		'file'     : os.path.join(LOGINFOLD, 'blacktv2_login'),
-		'settings' : os.path.join(ADDOND, 'plugin.video.blacktv2', 'settings.xml'),
+	'durextv2' : {
+		'name'     : 'Durex TV 2.0',
+		'plugin'   : 'plugin.video.durextv2',
+		'saved'    : 'logindurextv2',
+		'path'     : os.path.join(ADDONS, 'plugin.video.durextv2'),
+		'icon'     : os.path.join(ADDONS, 'plugin.video.durextv2', 'icon.png'),
+		'fanart'   : os.path.join(ADDONS, 'plugin.video.durextv2', 'fanart.jpg'),
+		'file'     : os.path.join(LOGINFOLD, 'durextv2_login'),
+		'settings' : os.path.join(ADDOND, 'plugin.video.durextv2', 'settings.xml'),
 		'default'  : 'Username',
 		'data'     : ['Username', 'Password'],
 		'activate' : ''},		

@@ -134,8 +134,8 @@
 		<setting id="loginsportsaccess" type="text" label="SportsAccess: " enable="false" default=""/>
 		<setting id="logingearstv" type="text" label="Gears TV: " enable="false" default=""/>
 		<setting id="logindextertv" type="text" label="Dexter TV: " enable="false" default=""/>
-		<setting id="loginblacktv" type="text" label="Black TV 1.0: " enable="false" default=""/>
-		<setting id="loginblacktv2" type="text" label="Black TV 2.0: " enable="false" default=""/>
+		<setting id="logindurextv" type="text" label="Durex TV 1.0: " enable="false" default=""/>
+		<setting id="logindurextv2" type="text" label="Durex TV 2.0: " enable="false" default=""/>
 		<setting id="loginlimitless" type="text" label="Limitless IPTV: " enable="false" default=""/>
 		<setting id="loginvader" type="text" label="Vader Streams: " enable="false" default=""/>
 		<setting id="loginsmoothstreams" type="text" label="Smooth Streams: " enable="false" default=""/>

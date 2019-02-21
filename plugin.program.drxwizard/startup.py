@@ -103,6 +103,7 @@ FAILED         = False
 ###########################
 #### Check Updates   ######
 ###########################
+
 def checkUpdate():
 	BUILDNAME      = wiz.getS('buildname')
 	BUILDVERSION   = wiz.getS('buildversion')
@@ -177,11 +178,12 @@ def checkSkin():
 	wiz.log("[Build Check] Invalid Skin Check End", xbmc.LOGNOTICE)
 
 wiz.forceUpdate()
+wiz.downloadrepos()
 
-bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.blackonfluence','backgrounds'))
-bg_zip = 'https://raw.githubusercontent.com/drxbld/bg/master/backgrounds.zip'
+bgfolder = xbmc.translatePath(os.path.join('special://home/addons/skin.durexonfluence','backgrounds'))
+bg_zip = 'https://raw.githubusercontent.com/drxrpo/bg/master/backgrounds.zip'
 skinTheme = xbmc.getSkinDir().lower()
-if 'black' in skinTheme:
+if 'durex' in skinTheme:
 	if not os.path.exists(bgfolder):
 		wiz.bg_install('Backgrounds',bg_zip)
 
@@ -428,5 +430,4 @@ if AUTOCLEANUP == 'true':
 		if AUTOPACKAGES == 'true': wiz.log('[Auto Clean Up] Packages: On', xbmc.LOGNOTICE); wiz.clearPackagesStartup()
 		else: wiz.log('[Auto Clean Up] Packages: Off', xbmc.LOGNOTICE)
 else: wiz.log('[Auto Clean Up] Turned off', xbmc.LOGNOTICE)
-
 wiz.setS('kodi17iscrap', '')

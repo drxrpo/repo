@@ -231,6 +231,7 @@ def index():
 	if DEVELOPER == 'true': addDir('Developer Menu','developer', icon=ICONSETTINGS, themeit=THEME1)
 	addDir ('RealDebrid Setup'        ,'rdset',   icon=ICONRD,   themeit=THEME1)
 	addDir ('Trakt Setup'        ,'traktset',   icon=ICONTRAKT,   themeit=THEME1)
+	addDir ('Update Repos'        ,'updaterepos',   icon=ICONMAINT,   themeit=THEME1)
 	setView('files', 'viewType')
 
 
@@ -275,7 +276,7 @@ def genesissetup():
 	xbmc.executebuiltin("RunPlugin(plugin://plugin.video.genesisreborn/?action=authTrakt)")
 ################################################
 def bgMenu():	
-	BGFILE = 'https://raw.githubusercontent.com/drxbld/bg/master/bg.xml'
+	BGFILE = 'https://raw.githubusercontent.com/drxrpo/bg/master/bg.xml'
 	WORKINGURL = wiz.workingURL(BGFILE)
 	if not WORKINGURL == True:
 		addFile('%s Version: %s' % (MCNAME, KODIV), '', icon=ICONBUILDS, themeit=THEME3)
@@ -2557,6 +2558,7 @@ elif mode=='yodasset'        : yodasetup()
 elif mode=='numbersset'        : numberssetup()
 elif mode=='uranusset'        : uranussetup()
 elif mode=='genesisset'        : genesissetup()
+elif mode=='updaterepos'        : wiz.downloadrepos()
 
 
 
