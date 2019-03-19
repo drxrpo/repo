@@ -2266,7 +2266,10 @@ def clearThumb(type=None):
 		except: wiz.log('Failed to delete, Purging DB.'); wiz.purgeDb(latest)
 		wiz.removeFolder(THUMBS)
 		#if not type == 'total': wiz.killxbmc()
-	else: wiz.log('Clear thumbnames cancelled')
+		sys.exit()
+	else: 
+		wiz.log('Clear thumbnames cancelled')
+		sys.exit()
 	wiz.redoThumbs()
 
 def purgeDb():
