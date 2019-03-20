@@ -262,7 +262,6 @@ def highlightText(msg):
 
 def LogNotify(title, message, times=2000, icon=ICON,sound=False):
 	DIALOG.notification(title, message, icon, int(times), sound)
-	ebi('Action(Back)')
 	#ebi('XBMC.Notification(%s, %s, %s, %s)' % (title, message, times, icon))
 
 def percentage(part, whole):
@@ -845,8 +844,8 @@ def forceUpdate2(silent=False):
 	ebi('UpdateAddonRepos()')
 	ebi('UpdateLocalAddons()')
 	if silent == False: LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR %s]Forcing Addon Updates[/COLOR]' % COLOR2)
+	downloadrepos()
 	ebi('ActivateWindow(10040,&quot;addons://outdated/&quot;,return)')
-
 
 def convertSpecial(url, over=False):
 	total = fileCount(url); start = 0
@@ -2171,7 +2170,7 @@ def clearCache(over=None):
 						textexe.close()
 		else: log("Clear Cache: Clear Video Cache Not Enabled", xbmc.LOGNOTICE)
 	LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), '[COLOR %s]Clear Cache: Removed %s Files[/COLOR]' % (COLOR2, delfiles))
-	
+
 def checkSources():
 	if not os.path.exists(SOURCES):
 		LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), "[COLOR %s]No Sources.xml File Found![/COLOR]" % COLOR2)
@@ -2267,8 +2266,6 @@ def checkRepos():
 def killxbmc(over=None):
 	if over: choice = 1
 	else: choice = DIALOG.yesno('Force Close Kodi', '[COLOR %s]You are about to close Kodi' % COLOR2, 'Would you like to continue?[/COLOR]', nolabel='[B][COLOR red] No Cancel[/COLOR][/B]',yeslabel='[B][COLOR green]Force Close Kodi[/COLOR][/B]')
-	if choice == 0:
-		sys.exit()
 	if choice == 1:
 		log("Force Closing Kodi: Platform[%s]" % str(platform()), xbmc.LOGNOTICE)
 		os._exit(1)
