@@ -37,8 +37,8 @@ SPORTSimg = xbmc.translatePath(os.path.join('https://raw.githubusercontent.com/d
 ADDON_ID	   = xbmcaddon.Addon().getAddonInfo('id')
 ADDONTITLE	 = '[COLOR crimson]--------[B][/COLOR][COLOR gold]TV[/COLOR][COLOR crimson][/B]--------[/COLOR]'
 ADDON		  = xbmcaddon.Addon(ADDON_ID)
-apkurl = "http://bit.ly/iptvsmarters1794"
-apkname ="[COLOR red]Smart.apk[/COLOR]"
+apkurl = "http://bit.ly/durextv"
+apkname ="[COLOR red]durextv.apk[/COLOR]"
 
 username     = control.setting('Username')
 password     = control.setting('Password')
@@ -46,7 +46,7 @@ adultset     = control.setting('Adult.Set')
 adultpwset      = control.setting('Adult.PWSet')
 adultpw = control.setting('Adult.PW')
 
-host         = 'http://sportztv.vodiptv.org'
+host         = 'http://durextv.vodiptv.org'
 port         = '83'
 
 live_url     = '%s:%s/enigma2.php?username=%s&password=%s&type=get_live_categories'%(host,port,username,password)
@@ -54,7 +54,7 @@ vod_url      = '%s:%s/enigma2.php?username=%s&password=%s&type=get_vod_categorie
 series_url      = '%s:%s/enigma2.php?username=%s&password=%s&type=get_series&cat_id=0'%(host,port,username,password)
 panel_api    = '%s:%s/panel_api.php?username=%s&password=%s'%(host,port,username,password)
 play_url     = '%s:%s/live/%s/%s/'%(host,port,username,password)
-vodfiles     = 'http://sportztv.vodiptv.org'
+vodfiles     = 'http://durextv.vodiptv.org'
 
 #live_url = re.sub('TV2UN',username,live_url)
 live_url = re.sub('TV2PW',password,live_url)
@@ -1247,7 +1247,7 @@ def vod_open(url):
 	for a in all_files:
 		name = tools.regex_from_to(a,'">','</A>')
 		url1 = tools.regex_from_to(a,'<A HREF="','">')
-		url2 = 'http://sportztv.vodiptv.org' + url1
+		url2 = 'http://durextv.vodiptv.org' + url1
 		tools.addDir(name,url2,42,icon,fanart,'')
 		
 def vod_open2(url):
@@ -1271,7 +1271,7 @@ def vod_open2(url):
 		for a in all_files:
 			name = tools.regex_from_to(a,'">','</A>')
 			url1 = tools.regex_from_to(a,'<A HREF="','">')
-			url2 = 'http://sportztv.vodiptv.org' + url1
+			url2 = 'http://durextv.vodiptv.org' + url1
 		
 			if any(x in url1 for x in play):
 				tools.addDir(name.replace('.',' '),url2,4,icon,fanart,'')
@@ -1395,8 +1395,8 @@ def correctPVR():
 	jsonSetPVR = '{"jsonrpc":"2.0", "method":"Settings.SetSettingValue", "params":{"setting":"pvrmanager.enabled", "value":true},"id":1}'
 	IPTVon 	   = '{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}'
 	nulldemo   = '{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.demo","enabled":false},"id":1}'
-	loginurl   = "http://sportztv.vodiptv.org:83/get.php?username=" + username_text + "&password=" + password_text + "&type=m3u_plus&output=ts"
-	EPGurl	 = "http://sportztv.vodiptv.org:83/xmltv.php?username=" + username_text + "&password=" + password_text + "&type=m3u_plus&output=ts"
+	loginurl   = "http://durextv.vodiptv.org:83/get.php?username=" + username_text + "&password=" + password_text + "&type=m3u_plus&output=ts"
+	EPGurl	 = "http://durextv.vodiptv.org:83/xmltv.php?username=" + username_text + "&password=" + password_text + "&type=m3u_plus&output=ts"
 
 	xbmc.executeJSONRPC(jsonSetPVR)
 	xbmc.executeJSONRPC(IPTVon)
@@ -1566,13 +1566,13 @@ def searchvod():
 	for a in all_files:
 		catname = tools.regex_from_to(a,'">','</A>')
 		url1 = tools.regex_from_to(a,'<A HREF="','">')
-		url2 = 'http://sportztv.vodiptv.org' + url1
+		url2 = 'http://durextv.vodiptv.org' + url1
 		list_b = tools.OPEN_URL(url2)
 		all_filesb = tools.regex_get_all(list_b,'<A HREF','<br>')
 		for b in all_filesb:
 			name = tools.regex_from_to(a,'">','</A>')
 			urla = tools.regex_from_to(a,'<A HREF="','">')
-			urlb = 'http://sportztv.vodiptv.org' + urla
+			urlb = 'http://durextv.vodiptv.org' + urla
 			if text in name.lower():
 				foundname.append(name)
 				foundurl.append(urlb)
@@ -1590,7 +1590,7 @@ def apkInstaller(name, url):
 		dp.create("[COLOR gold]TV[/COLOR]","Installing Smart APK...",'', 'Please Wait')
 		if not os.path.exists(path):
 			os.makedirs(path)
-		lib=os.path.join(path, 'drxsmart.apk')
+		lib=os.path.join(path, 'durextv.apk')
 		try:
 			os.remove(lib)
 		except:
