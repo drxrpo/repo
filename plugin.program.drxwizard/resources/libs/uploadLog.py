@@ -207,7 +207,7 @@ class Main:
 
 		try:
 			page = url_opener.open(URL, params)
-		except Exception, e:
+		except Exception as e:
 			a = 'failed to connect to the server'
 			wiz.log("%s: %s" % (a, str(e)), xbmc.LOGERROR)
 			return False, a
@@ -216,7 +216,7 @@ class Main:
 			page_url = page.url.strip()
 			wiz.log("URL for %s: %s" % (name, page_url), xbmc.LOGNOTICE)
 			return True, page_url
-		except Exception, e:
+		except Exception as e:
 			a = 'unable to retrieve the paste url'
 			wiz.log("%s: %s" % (a, str(e)), xbmc.LOGERROR)
 			return False, a
@@ -230,7 +230,7 @@ class Main:
 			result     = url_opener.open(URL, params)
 			returninfo = result.read()
 			wiz.log(str(returninfo), xbmc.LOGNOTICE)
-		except Exception, e:
+		except Exception as e:
 			a = 'failed to connect to the server'
 			wiz.log("%s: %s" % (a, str(e)), xbmc.LOGERROR)
 			return False, a
@@ -239,7 +239,7 @@ class Main:
 			if 'type' in js_data:
 				return js_data['type'], str(js_data['text'])
 			else: return str(js_data)
-		except Exception, e:
+		except Exception as e:
 			wiz.log("ERROR: "+ str(e), xbmc.LOGERROR)
 		return "Error Sending Email."
 
@@ -258,7 +258,7 @@ class Main:
 					os.remove(imagefile)
 				except: 
 					pass
-			except Exception, e:
+			except Exception as e:
 				wiz.log(str(e), xbmc.LOGNOTICE)
 				confirm   = DIALOG.ok(ADDONTITLE, "[COLOR %s]%s[/COLOR]" % (COLOR2, message))
 		else:

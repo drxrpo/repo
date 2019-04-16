@@ -447,7 +447,7 @@ def DecryptSignatureNew(s, playerUrl):
         playerData = urllib2.urlopen(request).read()
         playerData = playerData.decode('utf-8', 'ignore')
     
-    except Exception, e:
+    except Exception as e:
         #print str(e)
         print 'Failed to decode playerData'
         return ''

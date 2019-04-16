@@ -47,7 +47,7 @@ def allNoProgress(_in, _out, ignore):
 	try:
 		zin = zipfile.ZipFile(_in, 'r')
 		zin.extractall(_out)
-	except Exception, e:
+	except Exception as e:
 		print str(e)
 		return False
 	return True
@@ -56,7 +56,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 	count = 0; errors = 0; error = ''; update = 0; size = 0; excludes = []
 	try:
 		zin = zipfile.ZipFile(_in,  'r')
-	except Exception, e:
+	except Exception as e:
 		errors += 1; error += '%s\n' % e
 		wiz.log('Error Checking Zip: %s' % str(e), xbmc.LOGERROR)
 		return update, errors, error
@@ -98,7 +98,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 		else:
 			try:
 				zin.extract(item, _out)
-			except Exception, e:
+			except Exception as e:
 				errormsg  = "[COLOR %s]File:[/COLOR] [COLOR %s]%s[/COLOR]\n" % (COLOR2, COLOR1, file[-1])
 				errormsg += "[COLOR %s]Folder:[/COLOR] [COLOR %s]%s[/COLOR]\n" % (COLOR2, COLOR1, (item.filename).replace(file[-1],''))
 				errormsg += "[COLOR %s]Error:[/COLOR] [COLOR %s]%s[/COLOR]\n\n" % (COLOR2, COLOR1, str(e).replace('\\\\','\\').replace("'%s'" % item.filename, ''))

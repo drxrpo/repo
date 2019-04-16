@@ -218,7 +218,7 @@ if KODIADDONS in ADDONPATH:
 		wiz.removeFolder(newpath)
 	try:
 		wiz.copytree(ADDONPATH, newpath)
-	except Exception, e:
+	except Exception as e:
 		pass
 	wiz.forceUpdate(True)
 
@@ -290,7 +290,7 @@ if ENABLE == 'Yes':
 						wiz.setS('notedismiss', 'false')
 						notify.notification(msg=msg)
 						wiz.log("[Notifications] Complete", xbmc.LOGNOTICE)
-				except Exception, e:
+				except Exception as e:
 					wiz.log("Error on Notifications Window: %s" % str(e), xbmc.LOGERROR)
 			else: wiz.log("[Notifications] Text File not formated Correctly")
 		else: wiz.log("[Notifications] URL(%s): %s" % (NOTIFICATION, url), xbmc.LOGNOTICE)
