@@ -139,6 +139,10 @@ TODAY            = date.today()
 TOMORROW         = TODAY + timedelta(days=1)
 THREEDAYS        = TODAY + timedelta(days=3)
 KODIV            = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
+if KODIV > 17:
+	from resources.libs import zfile as zipfile
+else:
+	import zipfile
 MCNAME           = wiz.mediaCenter()
 EXCLUDES         = uservar.EXCLUDES
 BUILDFILE        = uservar.BUILDFILE
@@ -529,7 +533,7 @@ def apkScraper(name=""):
 				download = tempurl
 				addFile(title, 'apkinstall', name, download)
 				x += 1
-			except Exception as e:
+			except Exception, e:
 				wiz.log("Error on: %s / %s" % (name, str(e)))
 		if x == 0: addFile("Error SPMC Scraper Is Currently Down.")
 
@@ -1286,7 +1290,7 @@ def fixUpdate():
 		dbfile = os.path.join(DATABASE, wiz.latestDB('Addons'))
 		try:
 			os.remove(dbfile)
-		except Exception as e:
+		except Exception, e:
 			wiz.log("Unable to remove %s, Purging DB" % dbfile)
 			wiz.purgeDb(dbfile)
 	else:
@@ -2202,7 +2206,7 @@ def freshStart(install=None, over=False):
 					try:
 						if name == latestAddonDB and KODIV >= 17: wiz.log("Ignoring %s on v%s" % (name, KODIV), xbmc.LOGNOTICE)
 						else: os.remove(os.path.join(root,name))
-					except Exception as e: 
+					except Exception, e: 
 						if not name.startswith('Textures13'):
 							wiz.log('Failed to delete, Purging DB', xbmc.LOGNOTICE)
 							wiz.log("-> %s" % (str(e)), xbmc.LOGNOTICE)
@@ -2210,7 +2214,7 @@ def freshStart(install=None, over=False):
 				else:
 					DP.update(int(wiz.percentage(del_file, total_files)), '', '[COLOR %s]File: [/COLOR][COLOR %s]%s[/COLOR]' % (COLOR2, COLOR1, name), '')
 					try: os.remove(os.path.join(root,name))
-					except Exception as e: 
+					except Exception, e: 
 						wiz.log("Error removing %s" % os.path.join(root, name), xbmc.LOGNOTICE)
 						wiz.log("-> / %s" % (str(e)), xbmc.LOGNOTICE)
 			if DP.iscanceled(): 
@@ -2302,7 +2306,7 @@ def testnotify():
 			id, msg = wiz.splitNotify(NOTIFICATION)
 			if id == False: wiz.LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), "[COLOR %s]Notification: Not Formated Correctly[/COLOR]" % COLOR2); return
 			notify.notification(msg, True)
-		except Exception as e:
+		except Exception, e:
 			wiz.log("Error on Notifications Window: %s" % str(e), xbmc.LOGERROR)
 	else: wiz.LogNotify("[COLOR %s]%s[/COLOR]" % (COLOR1, ADDONTITLE), "[COLOR %s]Invalid URL for Notification[/COLOR]" % COLOR2)
 
@@ -2341,10 +2345,10 @@ def unzip(_in, _out, dp):
 				dp.update(int(update))
 				__in.extract(item, _out)
 			
-			except Exception as e:
+			except Exception, e:
 				print str(e)
 
-	except Exception as e:
+	except Exception, e:
 		print str(e)
 		return False
 		

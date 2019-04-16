@@ -53,7 +53,7 @@ def _pbhook(numblocks, blocksize, filesize, dp, start_time):
 		e   = '[COLOR %s][B]Speed:[/B] [COLOR %s]%.02f [/COLOR]%s/s ' % (COLOR2, COLOR1, kbps_speed, type_speed)
 		e  += '[B]ETA:[/B] [COLOR '+COLOR1+']%02d:%02d[/COLOR][/COLOR]' % divmod(eta, 60)
 		dp.update(percent, '', mbs, e)
-	except Exception as e:
+	except Exception, e:
 		wiz.log("ERROR Downloading: %s" % str(e), xbmc.LOGERROR)
 		return str(e)
 	if dp.iscanceled(): 

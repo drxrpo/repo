@@ -82,6 +82,10 @@ TWODAYS        = TODAY + timedelta(days=2)
 THREEDAYS      = TODAY + timedelta(days=3)
 ONEWEEK        = TODAY + timedelta(days=7)
 KODIV          = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
+if KODIV > 17:
+	from resources.libs import zfile as zipfile
+else:
+	import zipfile
 EXCLUDES       = uservar.EXCLUDES
 BUILDFILE      = uservar.BUILDFILE
 UPDATECHECK    = uservar.UPDATECHECK if str(uservar.UPDATECHECK).isdigit() else 1
@@ -218,7 +222,7 @@ if KODIADDONS in ADDONPATH:
 		wiz.removeFolder(newpath)
 	try:
 		wiz.copytree(ADDONPATH, newpath)
-	except Exception as e:
+	except Exception, e:
 		pass
 	wiz.forceUpdate(True)
 
@@ -290,7 +294,7 @@ if ENABLE == 'Yes':
 						wiz.setS('notedismiss', 'false')
 						notify.notification(msg=msg)
 						wiz.log("[Notifications] Complete", xbmc.LOGNOTICE)
-				except Exception as e:
+				except Exception, e:
 					wiz.log("Error on Notifications Window: %s" % str(e), xbmc.LOGERROR)
 			else: wiz.log("[Notifications] Text File not formated Correctly")
 		else: wiz.log("[Notifications] URL(%s): %s" % (NOTIFICATION, url), xbmc.LOGNOTICE)

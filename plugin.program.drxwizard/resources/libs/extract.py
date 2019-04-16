@@ -36,6 +36,10 @@ KEEPSUPER      = wiz.getS('keepsuper')
 KEEPREPOS      = wiz.getS('keeprepos')
 KEEPWHITELIST  = wiz.getS('keepwhitelist')
 KODIV          = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
+if KODIV > 17:
+	from resources.libs import zfile as zipfile
+else:
+	import zipfile
 LOGFILES       = ['xbmc.log', 'xbmc.old.log', 'kodi.log', 'kodi.old.log', 'spmc.log', 'spmc.old.log', 'tvmc.log', 'tvmc.old.log', 'Thumbs.db', '.gitignore', '.DS_Store']
 bad_files      = ['onechannelcache.db', 'saltscache.db', 'saltscache.db-shm', 'saltscache.db-wal', 'saltshd.lite.db', 'saltshd.lite.db-shm', 'saltshd.lite.db-wal', 'queue.db', 'commoncache.db', 'access.log', 'trakt.db', 'video_cache.db']
 
@@ -47,7 +51,7 @@ def allNoProgress(_in, _out, ignore):
 	try:
 		zin = zipfile.ZipFile(_in, 'r')
 		zin.extractall(_out)
-	except Exception as e:
+	except Exception, e:
 		print str(e)
 		return False
 	return True
@@ -56,7 +60,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 	count = 0; errors = 0; error = ''; update = 0; size = 0; excludes = []
 	try:
 		zin = zipfile.ZipFile(_in,  'r')
-	except Exception as e:
+	except Exception, e:
 		errors += 1; error += '%s\n' % e
 		wiz.log('Error Checking Zip: %s' % str(e), xbmc.LOGERROR)
 		return update, errors, error
@@ -98,7 +102,7 @@ def allWithProgress(_in, _out, dp, ignore, title):
 		else:
 			try:
 				zin.extract(item, _out)
-			except Exception as e:
+			except Exception, e:
 				errormsg  = "[COLOR %s]File:[/COLOR] [COLOR %s]%s[/COLOR]\n" % (COLOR2, COLOR1, file[-1])
 				errormsg += "[COLOR %s]Folder:[/COLOR] [COLOR %s]%s[/COLOR]\n" % (COLOR2, COLOR1, (item.filename).replace(file[-1],''))
 				errormsg += "[COLOR %s]Error:[/COLOR] [COLOR %s]%s[/COLOR]\n\n" % (COLOR2, COLOR1, str(e).replace('\\\\','\\').replace("'%s'" % item.filename, ''))

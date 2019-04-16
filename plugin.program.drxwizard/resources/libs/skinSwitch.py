@@ -24,6 +24,10 @@ except:
 	import simplejson
 
 KODIV  = float(xbmc.getInfoLabel("System.BuildVersion")[:4])
+if KODIV > 17:
+	from resources.libs import zfile as zipfile
+else:
+	import zipfile
 
 def getOld(old):
 	try:
