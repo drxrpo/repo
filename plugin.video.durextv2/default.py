@@ -1598,7 +1598,7 @@ def apkInstaller(name, url):
 
 		downloader.download(url, lib, dp)
 		xbmc.sleep(100)
-		ebi('StartAndroidActivity("","android.intent.action.VIEW","application/vnd.android.package-archive","file:'+lib+'")')
+		ebi('StartAndroidActivity("com.nst.iptvsmarterstvbox","android.intent.action.VIEW","application/vnd.android.package-archive","file:'+lib+'")')
 	else:
 		dialog.ok("[COLOR gold]TV[/COLOR]",'[COLOR red]Error: Cannot install APK on a non-android device.[/COLOR]')
 	
